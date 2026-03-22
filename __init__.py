@@ -16,7 +16,7 @@ from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORMS = [Platform.SENSOR]
+PLATFORMS = [Platform.SENSOR, Platform.DEVICE_TRACKER]
 POLL_INTERVAL = timedelta(seconds=30)
 
 
