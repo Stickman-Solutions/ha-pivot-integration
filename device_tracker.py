@@ -61,21 +61,21 @@ class PivotEndTowerTracker(CoordinatorEntity, TrackerEntity):
     @property
     def latitude(self) -> float | None:
         """Return latitude."""
-        if self.coordinator.data is None:
+        if self.coordinator.data is None or self.coordinator.data["reported"] is None:
             return None
         return self.coordinator.data["reported"]["latitude"]
 
     @property
     def longitude(self) -> float | None:
         """Return longitude."""
-        if self.coordinator.data is None:
+        if self.coordinator.data is None or self.coordinator.data["reported"] is None:
             return None
         return self.coordinator.data["reported"]["longitude"]
 
     @property
     def location_accuracy(self) -> float:
         """Return location HDOP."""
-        if self.coordinator.data is None:
+        if self.coordinator.data is None or self.coordinator.data["reported"] is None:
             return 0
         return self.coordinator.data["reported"]["hdop"]
 
@@ -110,14 +110,14 @@ class PivotCenterTracker(CoordinatorEntity, TrackerEntity):
     @property
     def latitude(self) -> float | None:
         """Return center latitude."""
-        if self.coordinator.data is None:
+        if self.coordinator.data is None or self.coordinator.data["derived"] is None:
             return None
         return self.coordinator.data["derived"]["center_latitude"]
 
     @property
     def longitude(self) -> float | None:
         """Return center longitude."""
-        if self.coordinator.data is None:
+        if self.coordinator.data is None or self.coordinator.data["derived"] is None:
             return None
         return self.coordinator.data["derived"]["center_longitude"]
 

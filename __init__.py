@@ -51,16 +51,13 @@ async def fetch_device_data(
         resp.raise_for_status()
         devices = await resp.json()
 
-    if not reported or not derived:
-        raise UpdateFailed(f"No data returned for device {imei}")
-
     device = next((d for d in devices if d["imei"] == imei), None)
     if device is None:
         raise UpdateFailed(f"Device {imei} not found in device list")
 
     return {
-        "reported": reported[0],
-        "derived": derived[0],
+        "reported": reported[0] if reported else None,
+        "derived": derived[0] if derived else None,
         "device": device,
     }
 
