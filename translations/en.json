@@ -1,0 +1,23 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Account is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "title": "Connect to Stickman Solutions LLC Pivot API",
+                "description": "Enter your Pivot API credentials",
+                "data": {
+                    "host": "Host",
+                    "email": "Email",
+                    "api_key": "API Key"
+                }
+            }
+        }
+    }
+}
